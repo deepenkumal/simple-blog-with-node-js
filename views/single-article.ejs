@@ -1,0 +1,21 @@
+<%-include('./includes/_header') %>
+    <%- include('./includes/_navbar.ejs') %>
+        <div class="card mb-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= article.title %>
+                </h5>
+                <p class="card-subtitle text-muted mt-3">
+                    <%= article.created_at.toLocaleDateString() %>
+                </p>
+                <p class="card-text">
+                    <%= article.description %>
+                </p>
+                <a href="/article/update-article/<%= article.slug %>" class="btn btn-primary">Edit</a>
+                <a href="/article/delete-article/<%= article.slug%>?_method=DELETE" class="btn btn-danger">Delete</a>
+
+            </div>
+        </div>
+
+
+        <%- include('./includes/_footer')%>

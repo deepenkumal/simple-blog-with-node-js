@@ -1,0 +1,37 @@
+<%- include('includes/_header.ejs') %>
+    <%- include('includes/_navbar.ejs') %>
+
+        <body>
+            <div class="container my-3">
+                <!-- card body -->
+                <% articles.forEach(article=> {%>
+                    <div class="card mb-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= article.title %>
+                            </h5>
+                            <p class="card-subtitle text-muted mt-3">
+                                <%= article.created_at.toLocaleDateString() %>
+                            </p>
+                            <p class="card-text">
+                                <%= article.description %>
+                            </p>
+                            <a href="/article/<%= article.slug%>" class="btn btn-success">View More</a>
+
+
+                            <!-- messages -->
+                            <% if(typeof message!='undefined') {%>
+                                <div class="alert alert-success">
+                                    <strong>Success!</strong> Indicates a successful or positive action.
+                                  </div>
+                                  
+                            <%}%>
+
+                        </div>
+                    </div>
+                    <% }) %>
+                        <!-- card body -->
+
+
+
+                        <%- include('./includes/_footer')%>
